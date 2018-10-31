@@ -5,6 +5,6 @@ export class User{
 		public pais: string,
 		public name: string,
 		public dni: string,
-		public password string
+		public password: string
 	){}
 }
