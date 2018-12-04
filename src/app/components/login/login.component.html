@@ -1,1 +1,31 @@
-<h1>{{title}}</h1>
+<div>
+	<h1>{{title}}</h1>
+	<li *ngFor="let login of mapped">
+		<app-root [login]="login"></app-root>
+	</li>
+
+	<li *ngIf="identity ">
+		<p>marica</p>
+	</li>
+
+	<form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)" class="col-md-5">
+		<p>
+			<label for="email">Email</label>
+			<input type="email" name="email" #email="ngModel" [(ngModel)]="user.email" required class="form-control">
+			<span *ngIf="!email.valid && email.touched">
+				El email no es valido
+			</span>
+		</p>
+
+		<p>
+			<label for="password">Contraseña</label>
+			<input type="password" name="password" #password="ngModel" [(ngModel)]="user.password" required class="form-control">
+			<span *ngIf="!password.valid && password.touched">
+				La contraseña no es valida
+			</span>
+		</p>
+
+		<input type="submit" value="Entrar" class="btn btn-primary" [disabled]="!loginForm.form.valid">
+
+	</form>
+</div>

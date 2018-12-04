@@ -1,0 +1,68 @@
+<div class="col-md-12" *ngIf="identity">
+	<h2>{{title}}</h2>
+	<br>
+	<div *ngFor="let us  of mapped">
+	<table *ngIf="us.role == 'admin'" class="table table-hover table-stripped" id="egresados-list">
+		<tr>
+			<th>Nombre</th>			
+			<th>Identificación</th>
+			<th>Email</th>
+			<th>Acciones</th>
+		</tr>
+
+		<tr *ngFor="let egresado of egresados">
+			<td class="col-md-7">
+				<a [routerLink]="['/usuario', egresado.id]">{{egresado.name}}</a>
+			</td>			
+
+			<td>
+				{{egresado.dni}}
+			</td>
+
+			<td>
+				{{egresado.email}}
+			</td>		
+
+			<td >
+				<a [routerLink]="['editar-egresado', egresado.id]" class="btn btn-warning">Editar</a>
+				<a (click)="deleteEgresado(egresado.id)" class="btn btn-danger">Borrar</a>
+			</td>
+		</tr>	
+	</table>
+	
+	
+
+
+
+	
+		<table *ngIf="us.role == 'superuser'" class="table table-hover table-stripped" >
+		
+		<tr>
+			<th>Nombre</th>			
+			<th>Identificación</th>
+			<th>Email</th>
+			<th>Acciones</th>
+		</tr>
+
+		<tr *ngFor="let us of users">
+			<td class="col-md-7">
+				<a [routerLink]="['/admin', us.id]">{{us.name}}</a>
+			</td>			
+
+			<td>
+				{{us.dni}}
+			</td>
+
+			<td>
+				{{us.email}}
+			</td>		
+
+			<td >
+				<a  class="btn btn-warning">Editar</a>
+				<a (click)="deleteAdmin(us.id)" class="btn btn-danger">Borrar</a>
+			</td>
+		</tr>	
+	</table>	
+	</div>
+</div>		
+
