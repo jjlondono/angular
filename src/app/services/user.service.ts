@@ -81,7 +81,7 @@ export class UserService {
 	getAdmins(): Observable<any>{
 		let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
 
-		//peticion ajax
+		//peticion ajax al servidor
 		return this._http.get(this.url + 'users', {headers: headers});
 	}
 
