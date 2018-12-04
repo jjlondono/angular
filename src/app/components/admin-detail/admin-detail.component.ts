@@ -22,7 +22,7 @@ export class AdminDetailComponent implements OnInit {
 		private _userService: UserService,
 		private _egresadoService: EgresadoService		
 	){
-		//this.title = 'Inicio';
+		
 		//this.token = this._userService.getToken();
 		
 	}
