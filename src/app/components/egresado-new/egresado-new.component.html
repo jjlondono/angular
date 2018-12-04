@@ -1,0 +1,82 @@
+<div class="col-md-12" *ngIf="page_title">
+	<h2>{{page_title}}</h2>
+
+	<div class="alert alert-danger" *ngIf="status_egresado == 'success'" >
+		El egresado se guardado correctamente
+	</div>
+
+	<div class="alert alert-danger" *ngIf="status_egresado == 'error'" >
+		El egresado no se ha guardado correctamente
+	</div>
+
+	<form #egresadoNew="ngForm" (ngSubmit)="onSubmit(egresadoNew)" class="col-md-5">
+
+
+		<p>
+			<label for="name">Nombre</label>
+			<input type="text" name="name" #name="ngModel" [(ngModel)]="egresado.name" class="form-control" required>
+			<span *ngIf="!name.valid && name.touched">
+				El nombre no es valido
+			</span>
+		</p>
+
+		<p>
+			<label for="pais">Pais</label>
+			<input type="text" name="pais" #pais="ngModel" [(ngModel)]="egresado.pais" class="form-control" required>
+			<span *ngIf="!pais.valid   && pais.touched">
+				El pais no es valido
+			</span>
+		</p>
+
+		<p>
+			<label for="dni">Identificacion</label>
+			<input type="text" name="dni" #dni="ngModel" [(ngModel)]="egresado.dni" class="form-control" required>
+			<span *ngIf="!dni.valid   && dni.touched">
+				La identificacion no es valida
+			</span>
+		</p>
+
+		
+		<p>
+			<label for="email">Email</label>
+			<input type="text" name="email" #email="ngModel" [(ngModel)]="egresado.email" class="form-control" required>
+			<span *ngIf="!email.valid   && email.touched">
+				El email no es valido
+			</span>
+		</p>
+		
+
+		<p>
+			<label for="password">Contraseña</label>
+			<input type="password" name="password" #password="ngModel" [(ngModel)]="egresado.password" class="form-control" required>
+			<span *ngIf="!password.valid   && password.touched">
+				La contraseña no es valida
+			</span>
+		</p>
+
+		<p>
+			<label for="intereses">Intereses</label>
+			<input type="text" name="intereses" #intereses="ngModel" [(ngModel)]="egresado.intereses" class="form-control" required>
+			<span *ngIf="!intereses.valid   && intereses.touched">
+				Los intereses no son validos
+			</span>
+		</p>
+
+		<p>
+			<label for="edad">Edad</label>
+			<input type="text" name="edad" #edad="ngModel" [(ngModel)]="egresado.edad" class="form-control" required>
+			<span *ngIf="!edad.valid   && edad.touched">
+				La edad no es valida
+			</span>
+		</p>
+
+		<p>
+			<label for="genero">Genero</label>
+			<input type="text" name="genero" #genero="ngModel" [(ngModel)]="egresado.genero" class="form-control" required>
+			<span *ngIf="!genero.valid   && genero.touched">
+				El nombre no es valido
+			</span>
+		</p>
+		<input type="submit" value="Guardar" class="btn btn-success" [disabled]="!egresadoNew.form.valid">
+	</form>
+</div>

@@ -1,5 +1,12 @@
 <div>
 	<h1>{{title}}</h1>
+	<li *ngFor="let login of mapped">
+		<app-root [login]="login"></app-root>
+	</li>
+
+	<li *ngIf="identity ">
+		<p>marica</p>
+	</li>
 
 	<form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)" class="col-md-5">
 		<p>

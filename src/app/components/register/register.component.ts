@@ -18,8 +18,8 @@ export class RegisterComponent implements OnInit{
 		private _router: Router,
 		private _userService: UserService
 	){
-		this.title = 'Registrar';
-		this.user = new User(1, '', '', '', '', '');
+		this.title = 'Registrar un adminstrador';
+		this.user = new User(1, '', '', '', '', '', '', '','', '', '', '', '');
 	}
 	ngOnInit(){
 		console.log('register.component cargado ');
@@ -35,8 +35,9 @@ export class RegisterComponent implements OnInit{
 					this.status = response.status;
 
 					//vaciar el formulario
-					this.user = new User(1, '', '', '', '', '');
+					this.user = new User(1, '', '', '', '', '', '', '', '', '', '', '', '');
 					form.reset();
+					this._router.navigate(['/home']);
 
 				}else{
 					this.status = 'error';

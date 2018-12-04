@@ -1,26 +1,49 @@
-<header>
+<header *ngFor="let us  of mapped">
   <div class="navbar navbar-default">
   <div class="navbar-header">
     <a class="navbar-brand">
       OBSERVATORIO
     </a>
-  </div> 
-  <div class="collapse navbar-collapse" id="menu">
-    <ul class="nav navbar-nav">
-      <li>
-        <a>Inicio</a>
+  </div>
+
+  <div  class="collapse navbar-collapse" id="menu">
+    <ul *ngIf="identity && us.role == 'superuser'" class="nav navbar-nav">
+      <li >
+        <a [routerLink]="['']" >Inicio</a>
       </li>
-      <li>
-        <a>Crear un usuario</a>
+      <li>  
+        <a [routerLink]="['registro']">Registrar administrador</a>
+        
       </li>
+     
+    </ul>
+    <ul *ngIf="identity && us.role == 'admin'" class="nav navbar-nav">
+      <li>
+         <a [routerLink]="['']" >Inicio</a>
+      </li>
+      <li >       
+        <a [routerLink]="['crear-egresado']">Registrar un egresado</a>    
+      </li>
+    </ul> 
+   
+
+
+    <ul class="nav navbar-nav navbar-right" *ngIf="!identity">
+      <li >
+        <a [routerLink]="['login']">Iniciar sesión </a>
+      </li>
+      
     </ul>
 
-    <ul class="nav navbar-nav navbar-right">
+    <ul class="nav navbar-nav navbar-right" *ngIf="identity">
+      
       <li>
-        <a [routerLink]="['login']">Iniciar sesion</a>
+      
+        <a href="#">{{identity.name}}</a>
+
       </li>
       <li>
-        <a [routerLink]="['registro']">Registro</a>
+        <a [routerLink]="['logout', 1]">Salir</a>
       </li>
     </ul>
 
