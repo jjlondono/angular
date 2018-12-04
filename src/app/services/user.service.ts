@@ -89,7 +89,7 @@ export class UserService {
 		return this._http.get(this.url + 'users/' + id);
 	}
 
-	//eliminar un usuario
+	//eliminar un usuario aqministrador
 	delete(token, id): Observable<any>{
 		let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
 		                               .set('Authorization', token);
