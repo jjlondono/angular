@@ -50,6 +50,7 @@ export class EgresadoEditComponent implements OnInit {
   		);  	
   }
 
+//recibir los datos del formulario
   onSubmit(form){
     console.log(this.egresado.id);
     this._egresadoService.update(this.token, this.egresado, this.egresado.id).subscribe(
