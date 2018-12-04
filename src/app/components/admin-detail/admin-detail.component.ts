@@ -14,8 +14,7 @@ import { EgresadoService } from '../../services/egresado.service';
 export class AdminDetailComponent implements OnInit {
 	public admin: User;
 	public users: Array<User>;
-	public ap;
-
+	
   constructor(
 		private _route: ActivatedRoute,
 		private _router: Router,
